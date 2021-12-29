@@ -1,0 +1,35 @@
+body {
+    background: black;
+    color: lightgreen;
+    max-width: 600px;
+    margin: auto;
+    font-family: monospace;
+}
+
+p {
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+article + article {
+    margin-top: 3rem;
+    border-top: 1px solid darkred;
+    padding-top: 3rem;
+}
+
+h1 {
+    color: darkgreen;
+    font-size: 30px;
+}
+
+a {
+    font-size: 18px;
+}
+
+h1 a:link, h1 a:visited {
+    color: darkgreen;
+    font-size: 15px;
+    text-align: right;
+}
+
+
