@@ -30,6 +30,8 @@ pupiLog is a next generation blog software written via using Laravel-Framework. 
 - Run necessary npm commands: `npm install & npm run dev`
 - Run the migrations: `php artisan migrate`
 - If you need fake-data then run: `php artisan db:seed`
+- Symlink storage file: `php artisan storage:link`
+- And its ready: `php artisan serve`
 - For get admin account, change `is_admin` column to `true` in your users database.
 - Bon appetite!
 
