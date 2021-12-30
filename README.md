@@ -5,7 +5,7 @@ pupiLog is a next generation blog software written via using Laravel-Framework. 
 ## Features
 
 - Register / Login / Administration
-- Captcha and Mmemonic
+- Captcha and Mnemonic
 - Categories Section
 - Iplogger for every login session
 - Plain search with word based / Search in categories 
@@ -26,8 +26,8 @@ pupiLog is a next generation blog software written via using Laravel-Framework. 
 - Run on terminal: `git clone https://github.com/zorbey-qcow2/pupiLog.git`
 - Modify the `.env.example` file in accordance with your database settings.
 - Generate a new application key: `php artisan key:generate`
-- Run necessary npm commands: `npm install & npm run dev`
 - Install composer packages:  `composer install`
+- Run necessary npm commands: `npm install & npm run dev`
 - Run the migrations: `php artisan migrate`
 - If you need fake-data then run: `php artisan db:seed`
 - For get admin account, change `is_admin` column to `true` in your users database.
