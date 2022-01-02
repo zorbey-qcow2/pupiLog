@@ -14,10 +14,6 @@ use Illuminate\Support\Facades\Route;
 //    phpinfo();
 //});
 
-Route::get('users', [UserController::class, 'index']);
-Route::get('status', [UserController::class, 'status']);
-Route::get('live', [UserController::class, 'liveStatusPage']);
-Route::get('live-status/{id}', [UserController::class, 'liveStatus']);
 
 //Route::get('/test' , function() {
 //    echo request()->fullUrl();
@@ -67,5 +63,8 @@ Route::middleware('can:admin')->group(function () {
     Route::patch('admin/posts/comment/{comment}/update', [AdminCommentController::class, 'update']);
     Route::delete('admin/posts/comment/{comment}', [AdminCommentController::class, 'delete']);
     Route::patch('admin/posts/comment/{comment}', [AdminCommentController::class, 'publishStatus']);
+
+    Route::get('admin/userlist', [UserController::class, 'index']);
+// Route::get('live-status/{id}', [UserController::class, 'liveStatus']); // json döndürecek
 });
 

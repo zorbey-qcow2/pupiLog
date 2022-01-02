@@ -16,6 +16,10 @@
                        class="{{request()->is('admin/comments') ? 'text-blue-500' : 'text-white'}}">All Comments</a>
                 </li>
                 <li>
+                    <a href="/admin/userlist"
+                       class="{{request()->is('admin/userlist') ? 'text-blue-500' : 'text-white'}}">Users</a>
+                </li>
+                <li>
                     <a href="/admin/posts/create"
                        class="{{request()->is('admin/posts/create') ? 'text-blue-500' : 'text-white'}}">New Post</a>
                 </li>

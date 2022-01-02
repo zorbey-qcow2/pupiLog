@@ -15,7 +15,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
-        return view('users', compact('users'));
+        return view('admin.onlinepeople', compact('users'));
     }
 
     /**
@@ -28,12 +28,12 @@ class UserController extends Controller
         foreach ($users as $user) {
 
             if (Cache::has('user-is-online-' . $user->id))
-                echo $user->username . " is online. Last seen: " . Carbon::parse($user->last_seen)->diffForHumans() . " ";
+                echo $user->username . " şu an online. Son hareket: " . Carbon::parse($user->last_seen)->diffForHumans() . " ";
             else {
                 if ($user->last_seen != null) {
-                    echo $user->username . " is offline. Last seen: " . Carbon::parse($user->last_seen)->diffForHumans() . " ";
+                    echo $user->username . " şu an offline. Son hareket: " . Carbon::parse($user->last_seen)->diffForHumans() . " ";
                 } else {
-                    echo $user->username . " is offline. Last seen: No data ";
+                    echo $user->username . " şu an offline. Son hareket: Veri yok ";
                 }
             }
         }
@@ -64,9 +64,9 @@ class UserController extends Controller
 
         // check last seen
         if ($user->last_seen != null)
-            $last_seen = "Active " . Carbon::parse($user->last_seen)->diffForHumans();
+            $last_seen = Carbon::parse($user->last_seen)->diffForHumans() . " hareket etti.";
         else
-            $last_seen = "No data";
+            $last_seen = "Veri yok";
 
         // response
         return response()->json([
