@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->boolean('agreed')->default(false);
             $table->boolean('is_admin')->default(false);
             $table->string('reg_ip',32)->nullable();
+            $table->timestamp('last_seen')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

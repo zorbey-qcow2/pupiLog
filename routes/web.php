@@ -7,11 +7,17 @@ use App\Http\Controllers\PostCommentsController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 //Route::get('php' , function () {
 //    phpinfo();
 //});
+
+Route::get('users', [UserController::class, 'index']);
+Route::get('status', [UserController::class, 'status']);
+Route::get('live', [UserController::class, 'liveStatusPage']);
+Route::get('live-status/{id}', [UserController::class, 'liveStatus']);
 
 //Route::get('/test' , function() {
 //    echo request()->fullUrl();
