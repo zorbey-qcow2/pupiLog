@@ -49,7 +49,21 @@
                         <div class="space-y-4 lg:text-lg leading-loose text-green-700">
                             {{$post->body}}
                         </div>
+                        @if(count($post->imagepush) > 0)
+                            <section class="col-span-8 col-start-5 mt-16 space-y-6">
+                                @foreach($post->imagepush as $image)
+                                    <div class="lg:text-lg leading-loose mt-10 text-red-900 border border-blue-300 p-2">
+                                        Ek dosya:
+                                        <div class="text-gray-400">Görsel: <a class="underline"
+                                                                              href="{{$image->file_location}}">{{$image->excerpt}}</a>
+                                        </div>
+                                        <div class="text-blue-300">Görüntülenme: {{$image->view_count}}</div>
+                                    </div>
+                                @endforeach
+                            </section>
+                        @endif
                     </div>
+
                     <section class="col-span-8 col-start-5 mt-10 space-y-6">
                         <x-comment._add-comment-form :post="$post" commentposttitle="Katılım sağlayacak mısın?"/>
                         @foreach($comments->sortByDesc("created_at") as $comment)

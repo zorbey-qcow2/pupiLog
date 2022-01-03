@@ -29,12 +29,11 @@
                         <button class="text-xs font-bold uppercase text-green-500">Hoşgeldin {{ auth()->user()->username }}!</button>
                     </x-slot>
                     @can('admin')
-                        <x-dropdown-item href="/admin/posts" :active="request()->is('admin/posts')">Panel
-                        </x-dropdown-item>
-                        <x-dropdown-item href="/admin/posts/create" :active="request()->is('admin/posts/create')">Yeni
-                            Gönderi
+                        <x-dropdown-item href="/admin/posts" :active="request()->is('admin/posts')">Admin Panel
                         </x-dropdown-item>
                     @endcan
+                    <x-dropdown-item href="#" :active="request()->is('userpanel')">User Panel
+                    </x-dropdown-item>
                     <x-dropdown-item href="#" x-data="{}"
                                      @click.prevent="document.querySelector('#logout-form').submit()">
                         Çıkış

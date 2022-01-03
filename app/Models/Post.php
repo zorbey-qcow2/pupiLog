@@ -54,4 +54,10 @@ class Post extends Model
     {
         return $this->hasMany(Comtocom::class);
     }
+
+    public function imagepush()
+    {
+        return $this->morphMany(Imagepush::class, 'imagepushable');
+    }
+
 }
