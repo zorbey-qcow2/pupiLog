@@ -88,4 +88,11 @@ class SessionsController extends Controller
         return redirect('/')->with('success', 'Şifren yenilendi!');
     }
 
+    // USERCP
+
+    public function usercp()
+    {
+        return view('login.usercp');
+    }
+
 }

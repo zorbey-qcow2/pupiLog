@@ -43,6 +43,8 @@ Route::get('forgotpass', [SessionsController::class, 'renewPassPage'])->middlewa
 Route::post('forgotpass', [SessionsController::class, 'renewPassLogic'])->middleware('guest');
 Route::post('newpass/{user:username}', [SessionsController::class, 'newPass'])->middleware('guest');
 
+Route::get('usercp', [SessionsController::class, 'usercp'])->middleware('auth');
+
 Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth');
 
 //Administration
