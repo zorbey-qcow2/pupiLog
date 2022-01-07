@@ -49,6 +49,9 @@
                         <div class="space-y-4 lg:text-lg leading-loose text-green-700">
                             {{$post->body}}
                         </div>
+                        <div class="text-white text-right mt-2">
+                            @include('like.like', ['model' => $post])
+                        </div>
                         @if(count($post->imagepush) > 0)
                             <section class="col-span-8 col-start-5 mt-16 space-y-6">
                                 @foreach($post->imagepush as $image)

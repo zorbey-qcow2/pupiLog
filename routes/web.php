@@ -2,17 +2,30 @@
 
 use App\Http\Controllers\AdminCommentController;
 use App\Http\Controllers\AdminPostController;
+use App\Http\Controllers\LikeController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\PostCommentsController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\UserController;
+use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 
 //Route::get('php' , function () {
 //    phpinfo();
 //});
+
+Route::middleware('auth')->group(function () {
+    Route::post('like', [LikeController::class, 'like'])->name('like');
+    Route::delete('like', [LikeController::class, 'unlike'])->name('unlike');
+});
+Route::get('/like', function () {
+    $posts = Post::all();
+    return view('like.post' , compact('posts'));
+}
+
+);
 
 
 //Route::get('/test' , function() {
