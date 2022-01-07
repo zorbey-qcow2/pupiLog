@@ -40,9 +40,9 @@ class RegisterController extends Controller
 
     public function welcome()
     {
-//        if (auth()->user()->agreed === 1) {
-//            return redirect('/');
-//        }
+        if (auth()->user()->agreed === 1) {
+            return redirect('/');
+        }
 
         $mneEntropy = request()->user()->mnemonica;
         $mnemonic = BIP39::Entropy($mneEntropy);
