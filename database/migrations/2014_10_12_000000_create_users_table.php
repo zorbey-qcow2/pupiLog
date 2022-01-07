@@ -20,7 +20,8 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('mnemonica')->nullable();
             $table->boolean('agreed')->default(false);
-            $table->boolean('is_admin')->default(false);
+            $table->unsignedTinyInteger('role_id')->default(4);
+            $table->string('ban_reason')->nullable();
             $table->string('reg_ip',32)->nullable();
             $table->timestamp('last_seen')->nullable();
             $table->rememberToken();

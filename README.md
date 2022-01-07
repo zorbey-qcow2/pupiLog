@@ -26,15 +26,24 @@ pupiLog is a next generation blog software written via using Laravel-Framework. 
 
 - Run on terminal: `git clone https://github.com/zorbey-qcow2/pupiLog.git`
 - Rename `.env.example` config file to `.env` and set-up your database.
-- Generate a new application key: `php artisan key:generate`
 - Install composer packages:  `composer install`
 - Run necessary npm commands: `npm install & npm run dev`
 - Run the migrations: `php artisan migrate`
 - If you need fake-data then run: `php artisan db:seed`
 - Symlink storage file: `php artisan storage:link`
+- Generate a new application key: `php artisan key:generate`
 - And its ready: `php artisan serve`
 - For get admin account, change `is_admin` column to `true` in your users database.
 - Bon appetite!
+
+## User Role\Permissions
+> Edit `users -> role_id` to set the authority.
+- 1 : Admin
+- 2 : Moderator
+- 3 : Author
+- 4 : Standart
+- 5 : Restricted
+- 6 : Banned 
 
 Thanks to <a href="https://github.com/furkanmeraloglu" target="_blank">@furkanmeraloglu</a> who always supports me (◕‿◕)
 

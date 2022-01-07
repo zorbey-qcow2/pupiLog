@@ -9,23 +9,12 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\UserController;
-use App\Models\Post;
+use App\Http\Middleware\IsUserAgreed;
 use Illuminate\Support\Facades\Route;
 
 //Route::get('php' , function () {
 //    phpinfo();
 //});
-
-Route::middleware('auth')->group(function () {
-    Route::post('like', [LikeController::class, 'like'])->name('like');
-    Route::delete('like', [LikeController::class, 'unlike'])->name('unlike');
-});
-Route::get('/like', function () {
-    $posts = Post::all();
-    return view('like.post' , compact('posts'));
-}
-
-);
 
 
 //Route::get('/test' , function() {
@@ -44,21 +33,28 @@ Route::post('posts/{post:slug}/{comment}', [PostCommentsController::class, 'subC
 
 Route::post('newsletter', [NewsletterController::class, 'newsletter']);
 
-Route::get('register', [RegisterController::class, 'create'])->middleware('guest');
-Route::post('register', [RegisterController::class, 'store'])->middleware('guest');
-Route::get('hosgeldin', [RegisterController::class, 'welcome'])->middleware('auth');
-Route::patch('hosgeldin', [RegisterController::class, 'accept'])->middleware('auth');
 
-Route::get('login', [SessionsController::class, 'create'])->middleware('guest')->name('login');
-Route::post('login', [SessionsController::class, 'store'])->middleware('guest');
+Route::middleware('guest')->group(function () {
+    Route::get('register', [RegisterController::class, 'create']);
+    Route::post('register', [RegisterController::class, 'store']);
 
-Route::get('forgotpass', [SessionsController::class, 'renewPassPage'])->middleware('guest');
-Route::post('forgotpass', [SessionsController::class, 'renewPassLogic'])->middleware('guest');
-Route::post('newpass/{user:username}', [SessionsController::class, 'newPass'])->middleware('guest');
+    Route::get('login', [SessionsController::class, 'create'])->name('login');
+    Route::post('login', [SessionsController::class, 'store']);
 
-Route::get('usercp', [SessionsController::class, 'usercp'])->middleware('auth');
+    Route::get('forgotpass', [SessionsController::class, 'renewPassPage']);
+    Route::post('forgotpass', [SessionsController::class, 'renewPassLogic']);
+    Route::post('newpass/{user:username}', [SessionsController::class, 'newPass']);
+});
 
-Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth');
+
+Route::middleware('auth')->group(function () {
+    Route::get('usercp', [SessionsController::class, 'usercp']);
+    Route::post('logout', [SessionsController::class, 'destroy']);
+    Route::get('hosgeldin', [RegisterController::class, 'welcome'])->withoutMiddleware([IsUserAgreed::class])->name('hosgeldin');
+    Route::patch('hosgeldin', [RegisterController::class, 'accept'])->withoutMiddleware([IsUserAgreed::class]);
+    Route::post('like', [LikeController::class, 'like'])->name('like');
+    Route::delete('like', [LikeController::class, 'unlike'])->name('unlike');
+});
 
 //Administration
 
