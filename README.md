@@ -10,6 +10,7 @@ pupiLog is a next generation blog software written via using Laravel-Framework. 
 - Iplogger for every logged session
 - Plain search with word based / Search in categories 
 - Posts / Comments / Subcomments
+- Likeable Posts and Comments
 - Edit-Add-Delete Posts / Comments / Subcomments
 - Posts and comments can be set to published or unpublished 
 - Mostly Responsive Design
@@ -19,7 +20,7 @@ pupiLog is a next generation blog software written via using Laravel-Framework. 
 
 - Seperating project to two branchs ( Js / non-Js versions )
 - User profiles and user control panel
-- Like and Dislike logic
+~~- Like and Dislike logic~~
 
 ## Installation Instructions
 
