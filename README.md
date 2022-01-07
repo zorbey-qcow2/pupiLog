@@ -20,7 +20,7 @@ pupiLog is a next generation blog software written via using Laravel-Framework. 
 
 - Seperating project to two branchs ( Js / non-Js versions )
 - User profiles and user control panel
-~~- Like and Dislike logic~~
+- ~~Like and Dislike logic~~
 
 ## Installation Instructions
 
