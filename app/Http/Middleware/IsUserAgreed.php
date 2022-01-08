@@ -9,8 +9,10 @@ class IsUserAgreed
 {
     public function handle(Request $request, Closure $next)
     {
-        if (auth()->user() && auth()->user()->agreed === 0) {
-            return response()->redirectToRoute('hosgeldin');
+        if (session()->has('agreed')) {
+            if (session('agreed') === "false") {
+                return response()->redirectToRoute('hosgeldin');
+            }
         }
 
         return $next($request);

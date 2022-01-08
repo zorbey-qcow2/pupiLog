@@ -32,6 +32,8 @@ class RegisterController extends Controller
         $user = User::create($attributes);
 
         auth()->login($user);
+        session()->put('agreed', 'false');
+        session()->regenerate();
 
         session()->flash('success', 'Hesap başarıyla oluşturuldu.');
 
@@ -61,6 +63,9 @@ class RegisterController extends Controller
                     'agreed' => 1,
                     'mnemonica' => password_hash(request()->user()->mnemonica, PASSWORD_DEFAULT),
                 ]);
+
+            session()->put('agreed', 'true');
+            session()->regenerate();
 
             return redirect('/');
         }

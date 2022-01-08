@@ -31,7 +31,12 @@ class SessionsController extends Controller
                 'logged_ip' => request()->ip(),
                 'logged_date' => Carbon::now(),
             ]);
+
+            if (auth()->user()->agreed === 0) {
+                session()->put('agreed', 'false');
+            }
             session()->regenerate();
+
             return redirect('/')->with('success', 'Hoşgeldin!');
         } else {
             return back()->with('success', 'Bilgilerde hata var!');
