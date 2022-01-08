@@ -14,7 +14,9 @@
                             <img src="/images/lary-avatar.svg" alt="Lary avatar">
                             <div class="ml-3 text-left">
                                 <h5 class="font-bold text-red-800">{{ $post->author->username }}</h5>
-                                <h6>Mascot at qqq</h6>
+                                @if($post->author->epigram)
+                                    <h6 class="text-gray-600">{{$post->author->epigram}}</h6>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -52,7 +54,8 @@
                     </div>
                     <section class="col-span-8 col-start-5 mt-10 space-y-6">
                         <x-comment.post-comment :comment="$comment" :isSubCom="true"/>
-                        <x-comment._add-comment-form :post="$post" commentposttitle="Yanıtla" :isSubCom="true" :comment="$comment"/>
+                        <x-comment._add-comment-form :post="$post" commentposttitle="Yanıtla" :isSubCom="true"
+                                                     :comment="$comment"/>
 
                     </section>
                 </article>

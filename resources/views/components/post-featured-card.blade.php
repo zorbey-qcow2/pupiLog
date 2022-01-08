@@ -35,7 +35,6 @@
                     <div class="ml-3">
                         <h5 class="font-bold text-red-800"><a
                                 href="?author={{$post->author->username}}">{{ $post->author->username }}</a></h5>
-                        <h6>Instigator..</h6>
                     </div>
                 </div>
 
