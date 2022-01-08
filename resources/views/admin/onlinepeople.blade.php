@@ -26,6 +26,9 @@
                                     <th class="px-6 py-2 text-xs text-gray-500">
                                         Last Seen
                                     </th>
+                                    <th class="px-6 py-2 text-xs text-gray-500">
+                                        Last Action
+                                    </th>
                                 </tr>
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-500">
@@ -62,6 +65,11 @@
                                                 @else
                                                     <span>Veri yok</span>
                                                 @endif
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 text-center">
+                                            <div class="text-sm text-gray-900">
+                                                {{$user->last_action}}
                                             </div>
                                         </td>
                                     </tr>

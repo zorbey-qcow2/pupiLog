@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('ban_reason')->nullable();
             $table->string('reg_ip',32)->nullable();
             $table->timestamp('last_seen')->nullable();
+            $table->string('last_action')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

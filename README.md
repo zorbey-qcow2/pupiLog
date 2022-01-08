@@ -33,11 +33,10 @@ pupiLog is a next generation blog software written via using Laravel-Framework. 
 - Symlink storage file: `php artisan storage:link`
 - Generate a new application key: `php artisan key:generate`
 - And its ready: `php artisan serve`
-- For get admin account, change `is_admin` column to `true` in your users database.
 - Bon appetite!
 
 ## User Role\Permissions
-> Edit `users -> role_id` to set the authority.
+> Edit `users -> role_id` in database to set the authority.
 - 1 : Admin
 - 2 : Moderator
 - 3 : Author

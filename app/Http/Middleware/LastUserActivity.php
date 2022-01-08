@@ -24,7 +24,7 @@ class LastUserActivity
             Cache::put('user-is-online-' . auth()->user()->id, true, $expiresAt);
 
             // last seen
-            User::where('id', auth()->user()->id)->update(['last_seen' => (new \DateTime())->format("Y-m-d H:i:s")]);
+            User::where('id', auth()->user()->id)->update(['last_seen' => (new \DateTime())->format("Y-m-d H:i:s") , 'last_action' => request()->path()]);
         }
 
         return $next($request);
