@@ -1,6 +1,6 @@
 <x-layout>
     <x-slot name="content">
-        <x-setting heading="Publish New Post">
+        <x-admin-settings heading="Publish New Post">
             <form method="POST" action="/admin/posts" enctype="multipart/form-data">
                 @csrf
 
@@ -26,6 +26,6 @@
                 <x-form.submit-button>Publish</x-form.submit-button>
 
             </form>
-        </x-setting>
+        </x-admin-settings>
     </x-slot>
 </x-layout>

@@ -1,6 +1,6 @@
 <x-layout>
     <x-slot name="content">
-        <x-setting heading="Users:">
+        <x-admin-settings heading="Users:">
             <div class="container flex justify-center mx-auto">
                 <div class="flex flex-col">
                     <div class="w-full">
@@ -80,6 +80,6 @@
                     </div>
                 </div>
             </div>
-        </x-setting>
+        </x-admin-settings>
     </x-slot>
 </x-layout>

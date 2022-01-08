@@ -32,7 +32,7 @@
                         <x-dropdown-item href="/admin/posts" :active="request()->is('admin/posts')">Admin Panel
                         </x-dropdown-item>
                     @endcan
-                    <x-dropdown-item href="usercp" :active="request()->is('usercp')">User Panel
+                    <x-dropdown-item href="/usercp" :active="request()->is('usercp')">User Panel
                     </x-dropdown-item>
                     <x-dropdown-item href="#" x-data="{}"
                                      @click.prevent="document.querySelector('#logout-form').submit()">

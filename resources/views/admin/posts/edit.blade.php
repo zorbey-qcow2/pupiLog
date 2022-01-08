@@ -1,6 +1,6 @@
 <x-layout>
     <x-slot name="content">
-        <x-setting :heading="'Edit Post: ' . $post->title">
+        <x-admin-settings :heading="'Edit Post: ' . $post->title">
             <form method="POST" action="/admin/posts/{{$post->id}}/update" enctype="multipart/form-data">
                 @csrf
                 @method('PATCH')
@@ -34,6 +34,6 @@
                 <x-form.submit-button>Update</x-form.submit-button>
 
             </form>
-        </x-setting>
+        </x-admin-settings>
     </x-slot>
 </x-layout>

@@ -18,6 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('username')->unique();
             $table->string('email')->unique()->nullable();
             $table->string('password');
+            $table->tinyText('epigram')->nullable();
             $table->string('mnemonica')->nullable();
             $table->boolean('agreed')->default(false);
             $table->unsignedTinyInteger('role_id')->default(4);
