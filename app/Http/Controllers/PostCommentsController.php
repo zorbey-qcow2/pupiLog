@@ -41,8 +41,7 @@ class PostCommentsController extends Controller
                 'comment_id' => $comment->id,
                 'body' => request('body')
             ]);
-
-
+        
 //        $testy = new Comtocom();
 //        $testy->user_id = request()->user()->id;
 //        $testy->post_id = $post->id;
@@ -50,7 +49,8 @@ class PostCommentsController extends Controller
 //        $testy->body = request('body');
 //        $testy->save();
 
-        return back()->with('success', 'Yorumunuz işleme alındı.');
+        $uriRota = "/posts/" . $post->slug;
+        return redirect($uriRota)->with('success', 'Yorumunuz işleme alındı.');
     }
 
 }

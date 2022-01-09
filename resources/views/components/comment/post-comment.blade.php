@@ -14,14 +14,16 @@
                 </p>
             </header>
 
-            <p>{{ $comment->body }}</p>
+            <p>{{ $comment->body }} </p>
             @if($isSubCom == false)
                 @auth()
                     <button class="mt-1 text-teal-800">
                         <a href="{{Request::url() . '/' . $comment->id}}">Yanıtla</a></button>
                 @endauth
             @endif
+            <div class="border-t mt-2 pl-4">@include('like.like', ['model' => $comment])</div>
         </div>
+
     </article>
     @if($comment->comtocoms)
         @foreach($comment->comtocoms->sortByDesc("created_at") as $comtocom)
