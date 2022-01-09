@@ -1,0 +1,19 @@
+version: '3.3'
+
+services:
+  db:
+    image: mariadb:10.6.5
+    restart: on-failure
+    environment:
+      MARIADB_USER: 'runner'
+      MARIADB_PASSWORD: 'runner'
+      MARIADB_DATABASE: 'pupi_log'
+      MARIADB_ROOT_PASSWORD: 'root'
+    ports:
+      - '33066:3306'
+    expose:
+      - '3306'
+    volumes:
+      - db-data:/var/lib/mysql
+volumes:
+  db-data:
