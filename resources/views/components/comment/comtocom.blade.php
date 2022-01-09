@@ -11,7 +11,9 @@
                         </p>
 
                         <div class="flex items-center lg:justify-center text-sm mt-4">
-                            <img src="{{   $comment->author->avatar ? asset('/storage/' . $comment->author->avatar) : '/storage/thumbnails/avatar.png' }}" alt="" width="60" height="60" class="rounded-xl">
+                            <img
+                                src="{{   $post->author->avatar ? asset('/storage/' . $post->author->avatar) : '/storage/thumbnails/avatar.png' }}"
+                                alt="" width="60" height="60" class="rounded-xl">
                             <div class="ml-3 text-left">
                                 <h5 class="font-bold text-red-800">{{ $post->author->username }}</h5>
                                 @if($post->author->epigram)
@@ -23,7 +25,7 @@
 
                     <div class="col-span-8">
                         <div class="hidden lg:flex justify-between mb-6">
-                            <a href="{{ url()->previous(); }}"
+                            <a href="{{ url()->previous() }}"
                                class="transition-colors duration-300 relative inline-flex items-center text-lg text-lime-100 hover:text-blue-500">
                                 <svg width="22" height="22" viewBox="0 0 22 22" class="mr-2">
                                     <g fill="none" fill-rule="evenodd">
