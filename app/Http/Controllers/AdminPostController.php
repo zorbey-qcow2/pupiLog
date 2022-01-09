@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 
 class AdminPostController extends Controller
@@ -72,13 +73,24 @@ class AdminPostController extends Controller
 
     public function delete(Post $post)
     {
+
+        if ($post->thumbnail != 'thumbnails/illustration-1.jpg') {
+            $postThumbnail = $post->thumbnail;
+        } else {
+            $postThumbnail = null;
+        }
+
+        if (Storage::exists($postThumbnail)) {
+            Storage::delete($postThumbnail);
+        }
+
         $post->delete();
         return back()->with('success', 'Post Deleted!');
     }
 
     public function publishStatus(Post $post)
     {
-        $post->update(['published' => !$post->published ]);
+        $post->update(['published' => !$post->published]);
         return back()->with('success', 'Post Status Updated!');
     }
 

@@ -8,9 +8,9 @@
                         @endif
                         @csrf
                         <header class="flex items-center">
-                            <img src="https://i.pravatar.cc/60?u={{ auth()->id() }}" alt="" width="40"
-                                 height="40"
-                                 class="rounded-full">
+{{--                            <img src="{{ asset('/storage/' . $post->author->avatar) }}" alt="" width="40" height="40" class="rounded-xl">--}}
+
+                            <img src="{{   auth()->user()->avatar ? asset('/storage/' . auth()->user()->avatar) : '/storage/thumbnails/avatar.png' }}" alt="" width="40" height="40" class="rounded-xl">
                             <h2 class="ml-4 text-pink-900">{{$commentposttitle ?? 'hata'}}</h2>
                         </header>
 
