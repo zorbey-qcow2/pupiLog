@@ -18,15 +18,11 @@
 
                 @if($user->conversations()->exists())
                     <p class="text-white">Mesajlar</p>
-                    @foreach($user->conversations()->get() as $conversations)
+                    @foreach($user->conversations as $conversation)
                         <div class="mt-8">
-                            <p class="text-white"><span class="text-blue-300">Title:</span> {{$conversations->subject}}</p>
-                            <p class="text-white"><span class="text-red-500">Son Mesaj:</span> Lorem ipsum dolor sit
-                                amet,
-                                consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore... [Seen]</p>
-                            <p class="text-white"><span class="text-blue-300">Katılımcılar:</span> Hello ,
-                                World</p>
+                            <p class="text-white"><span class="text-blue-300">Title:</span> {{ $conversation->subject }}</p>
+                            <p class="text-white"><span class="text-red-500">Son Mesaj:</span> {{ $conversation->lastMessage?->body }} [Seen]</p>
+                            <p class="text-white"><span class="text-blue-300">Katılımcılar:</span> {{ $conversation->users->pluck('username')->join(', ') }}</p>
                         </div>
                     @endforeach
                 @else
