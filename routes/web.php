@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminCommentController;
 use App\Http\Controllers\AdminPostController;
 use App\Http\Controllers\LikeController;
+use App\Http\Controllers\MessagesController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\PostCommentsController;
 use App\Http\Controllers\PostController;
@@ -48,12 +49,19 @@ Route::middleware('guest')->group(function () {
 
 
 Route::middleware('auth')->group(function () {
-    Route::get('usercp', [SessionsController::class, 'usercp']);
     Route::post('logout', [SessionsController::class, 'destroy']);
     Route::get('hosgeldin', [RegisterController::class, 'welcome'])->withoutMiddleware([IsUserAgreed::class])->name('hosgeldin');
     Route::patch('hosgeldin', [RegisterController::class, 'accept'])->withoutMiddleware([IsUserAgreed::class]);
     Route::post('like', [LikeController::class, 'like'])->name('like');
     Route::delete('like', [LikeController::class, 'unlike'])->name('unlike');
+
+    Route::prefix('usercp')->group(function () {
+        Route::get('/', [SessionsController::class, 'usercp']);
+        Route::get('/messages', [MessagesController::class, 'index'])->name('messages');
+        Route::get('/newmessage', [MessagesController::class, 'createNew']);
+        Route::post('/sendmessage', [MessagesController::class, 'createNewMsg']);
+    });
+
 });
 
 //Administration

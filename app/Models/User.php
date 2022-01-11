@@ -4,6 +4,8 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Contracts\Likeable;
+use App\Models\Message\Conversation;
+use App\Models\Message\Message;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -115,4 +117,17 @@ class User extends Authenticatable
         return $this;
     }
 
+    // end of likelikelikelike... /////
+
+    // message
+
+    public function conversations()
+    {
+        return $this->belongsToMany(Conversation::class);
+    }
+
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
+    }
 }

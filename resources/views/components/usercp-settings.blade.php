@@ -18,8 +18,8 @@
                        class="{{request()->is('admin/comments') ? 'text-blue-500' : 'text-white'}}">Profile</a>
                 </li>
                 <li>
-                    <a href="/admin/userlist"
-                       class="{{request()->is('admin/userlist') ? 'text-blue-500' : 'text-white'}}">Messages</a>
+                    <a href="/usercp/messages"
+                       class="{{request()->is('usercp/messages') ? 'text-blue-500' : 'text-white'}}">Messages</a>
                 </li>
                 <li>
                     <a href="/admin/posts/create"
