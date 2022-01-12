@@ -57,9 +57,11 @@ Route::middleware('auth')->group(function () {
 
     Route::prefix('usercp')->group(function () {
         Route::get('/', [SessionsController::class, 'usercp']);
-        Route::get('/messages', [MessagesController::class, 'index'])->name('messages');
-        Route::get('/newmessage', [MessagesController::class, 'createNew']);
-        Route::post('/sendmessage', [MessagesController::class, 'createNewMsg']);
+        Route::get('messages', [MessagesController::class, 'index'])->name('messages');
+        Route::get('newmessage', [MessagesController::class, 'createNew']);
+        Route::post('sendmessage', [MessagesController::class, 'createNewMsg']);
+        Route::get('readmessage/{conversation}' , [MessagesController::class, 'readMsg']);
+        Route::post('replymessage/{conversation}' , [MessagesController::class, 'replyMsg']);
     });
 
 });

@@ -7,23 +7,22 @@
 
     <div class="flex">
         <aside class="w-48 flex-shrink-0">
-            <h4 class="font-semibold mb-4 text-red-500">User CP</h4>
             <ul>
                 <li>
-                    <a href="/admin/posts"
-                       class="{{request()->is('admin/posts') ? 'text-blue-500' : 'text-white'}}">userCP</a>
+                    <a href="/usercp"
+                       class="{{request()->is('usercp') ? 'text-blue-500' : 'text-white'}}">userCP</a>
                 </li>
                 <li>
-                    <a href="/admin/comments"
-                       class="{{request()->is('admin/comments') ? 'text-blue-500' : 'text-white'}}">Profile</a>
+                    <a href="/usercp/edit"
+                       class="{{request()->is('usercp/edit') ? 'text-blue-500' : 'text-white'}}">Profile</a>
                 </li>
                 <li>
                     <a href="/usercp/messages"
                        class="{{request()->is('usercp/messages') ? 'text-blue-500' : 'text-white'}}">Messages</a>
                 </li>
                 <li>
-                    <a href="/admin/posts/create"
-                       class="{{request()->is('admin/posts/create') ? 'text-blue-500' : 'text-white'}}">Notifications</a>
+                    <a href="/usercp/notifications"
+                       class="{{request()->is('usercp/notifications') ? 'text-blue-500' : 'text-white'}}">Notifications</a>
                 </li>
             </ul>
         </aside>

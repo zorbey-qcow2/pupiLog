@@ -11,18 +11,23 @@
                     </div>
                 </div>
 
-{{--                check:--}}
-{{--                $user->load(['messages.conversation.users' => fn ($q) => $q->where('id', '<>', $user->id)]) ... @foreach ($user->messages as $message)    participants: {{ $message->conversation->users->join(', ') }}  @endforeach--}}
-{{--                and check only:--}}
-{{--                $user->load('messages.conversation.users');--}}
+                {{--                check:--}}
+                {{--                $user->load(['messages.conversation.users' => fn ($q) => $q->where('id', '<>', $user->id)]) ... @foreach ($user->messages as $message)    participants: {{ $message->conversation->users->join(', ') }}  @endforeach--}}
+                {{--                and check only:--}}
+                {{--                $user->load('messages.conversation.users');--}}
 
                 @if($user->conversations()->exists())
                     <p class="text-white">Mesajlar</p>
                     @foreach($user->conversations as $conversation)
                         <div class="mt-8">
-                            <p class="text-white"><span class="text-blue-300">Title:</span> {{ $conversation->subject }}</p>
-                            <p class="text-white"><span class="text-red-500">Son Mesaj:</span> {{ $conversation->lastMessage?->body }} [Seen]</p>
-                            <p class="text-white"><span class="text-blue-300">Katılımcılar:</span> {{ $conversation->users->pluck('username')->join(', ') }}</p>
+                            <a href="/usercp/readmessage/{{$conversation->id}}"><p class="text-white"><span
+                                        class="text-blue-300">Konu:</span> {{ $conversation->subject }}</p></a>
+                            <p class="text-white"><span
+                                    class="text-red-500">Son Mesaj:</span> {{ $conversation->lastMessage?->body }}
+                                [Seen]</p>
+                            <p class="text-white"><span
+                                    class="text-blue-300">Katılımcılar:</span> {{ $conversation->users->pluck('username')->join(', ') }}
+                            </p>
                         </div>
                     @endforeach
                 @else

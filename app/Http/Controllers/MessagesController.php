@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Message\Conversation;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -40,6 +41,19 @@ class MessagesController extends Controller
         $createdConversation->users()->attach($receiverUserId);
 
         return redirect('/usercp/messages')->with('success', 'Mesajınız gönderildi!');
+
+    }
+
+    public function readMsg(Conversation $conversation)
+    {
+        return view('login.messages.read' , compact('conversation'));
+    }
+
+    public function replyMsg(Conversation $conversation)
+    {
+        $attributes = request()->validate([
+            'body' => 'required'
+        ]);
 
     }
 

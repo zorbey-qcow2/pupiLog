@@ -16,7 +16,6 @@
                     </div>
                 </div>
             </div>
-
         </x-usercp-settings>
     </x-slot>
 </x-layout>
