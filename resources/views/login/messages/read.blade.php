@@ -21,9 +21,9 @@
                     @endforeach
 
                     <div class="border p-6 border-blue-300 rounded-md mt-10">
-                        <form action="POST">
+                        <form method="POST" action="/usercp/replymessage/{{$conversation->id}}">
                             @csrf
-                            <x-form.textarea name="mesaj"></x-form.textarea>
+                            <x-form.textarea name="body"></x-form.textarea>
                             <x-form.submit-button>Gönder</x-form.submit-button>
                         </form>
                     </div>

@@ -57,6 +57,7 @@ Route::middleware('auth')->group(function () {
 
     Route::prefix('usercp')->group(function () {
         Route::get('/', [SessionsController::class, 'usercp']);
+        Route::get('edit', [SessionsController::class, 'editProfile']);
         Route::get('messages', [MessagesController::class, 'index'])->name('messages');
         Route::get('newmessage', [MessagesController::class, 'createNew']);
         Route::post('sendmessage', [MessagesController::class, 'createNewMsg']);

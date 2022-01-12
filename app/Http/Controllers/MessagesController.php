@@ -49,11 +49,19 @@ class MessagesController extends Controller
         return view('login.messages.read' , compact('conversation'));
     }
 
-    public function replyMsg(Conversation $conversation)
+    public function replyMsg(Conversation $conversation,Request $request)
     {
+
         $attributes = request()->validate([
             'body' => 'required'
         ]);
+
+        $conversation->messages()->create([
+            'user_id' => $request->user()->id,
+            'body' =>  $attributes['body']
+        ]);
+
+        return back()->with('success', 'Mesajınız gönderildi');
 
     }
 

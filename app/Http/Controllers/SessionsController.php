@@ -100,4 +100,11 @@ class SessionsController extends Controller
         return view('login.usercp');
     }
 
+    // USERCP->editProfile
+
+    public function editProfile()
+    {
+        return view('login.profile');
+    }
+
 }
