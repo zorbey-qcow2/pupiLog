@@ -29,6 +29,8 @@ class User extends Authenticatable
         'last_login_at',
         'mnemonica',
         'agreed',
+        'epigram',
+        'avatar'
     ];
 
     /**

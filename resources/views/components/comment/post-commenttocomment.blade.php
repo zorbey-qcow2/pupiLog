@@ -2,7 +2,7 @@
 <div class="bg-gray-50 p-6 rounded-xl">
 <article class="flex space-x-4 bg-green-100">
     <div class="flex-shrink-0">
-        <img src="{{   $comtocom->author->avatar ? asset('/storage/' . $comtocom->author->avatar) : '/storage/thumbnails/avatar.png' }}" alt="" width="60" height="60" class="rounded-xl">
+        <img src="{{   $comtocom->author->avatar ? asset('/storage/' . $comtocom->author->avatar) : '/storage/avatar/avatar.png' }}" alt="" width="60" height="60" class="rounded-xl">
     </div>
 
     <div>

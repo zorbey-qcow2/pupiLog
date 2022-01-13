@@ -8,7 +8,7 @@
                         @endif
                         @csrf
                         <header class="flex items-center">
-                            <img src="{{   auth()->user()->avatar ? asset('/storage/' . auth()->user()->avatar) : '/storage/thumbnails/avatar.png' }}" alt="" width="40" height="40" class="rounded-full">
+                            <img src="{{   auth()->user()->avatar ? asset('/storage/' . auth()->user()->avatar) : '/storage/avatar/avatar.png' }}" alt="" width="40" height="40" class="rounded-full">
                             <h2 class="ml-4 text-pink-900">{{$commentposttitle ?? 'hata'}}</h2>
                         </header>
 

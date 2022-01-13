@@ -11,7 +11,9 @@
                         </p>
 
                         <div class="flex items-center lg:justify-center text-sm mt-4">
-                            <img src="/images/lary-avatar.svg" alt="Lary avatar">
+                            <img
+                                src="{{   $post->author->avatar ? asset('/storage/' . $post->author->avatar) : '/storage/avatar/avatar.png' }}"
+                                alt="" width="60" height="60" class="rounded-xl">
                             <div class="ml-3 text-left">
                                 <h5 class="font-bold text-red-800">{{ $post->author->username }}</h5>
                                 @if($post->author->epigram)

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Iplogger;
 use App\Models\User;
 use FurqanSiddiqui\BIP39\BIP39;
+use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 
 class SessionsController extends Controller
@@ -102,9 +103,33 @@ class SessionsController extends Controller
 
     // USERCP->editProfile
 
-    public function editProfile()
+    public function editProfile(Request $request)
     {
-        return view('login.profile');
+        $user = $request->user();
+        return view('login.profile', compact('user'));
+    }
+
+    public function saveProfile(User $user)
+    {
+        $attributes = request()->validate([
+            'epigram' => 'max:255',
+            'avatar' => 'image'
+        ]);
+
+        if ($attributes['avatar'] ?? false) {
+            $attributes['avatar'] = request()->file('avatar')->store('avatar');
+        }
+
+        $user->update([
+            'epigram' => $attributes['epigram'],
+            'avatar' => $attributes['avatar']
+        ]);
+
+
+
+        return back()->with('success', 'Profil güncellendi');
+
+
     }
 
 }

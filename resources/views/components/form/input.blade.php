@@ -1,6 +1,6 @@
-@props(['name' , 'type' => 'text' , 'required' => false])
+@props(['name' , 'type' => 'text' , 'required' => false , 'label' => $name])
 <x-form.div>
-    <x-form.label name="{{$name}}"/>
+    <x-form.label name="{{$label}}"/>
     <input class="border border-gray-200 bg-green-100 p-2 w-full rounded"
            type="{{$type}}"
            name="{{$name}}"
