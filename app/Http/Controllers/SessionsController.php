@@ -112,19 +112,18 @@ class SessionsController extends Controller
     public function saveProfile(User $user)
     {
         $attributes = request()->validate([
-            'epigram' => 'max:255',
+            'epigram' => 'max:15',
             'avatar' => 'image'
         ]);
 
         if ($attributes['avatar'] ?? false) {
             $attributes['avatar'] = request()->file('avatar')->store('avatar');
+            $user->update(['avatar' => $attributes['avatar']]);
         }
 
         $user->update([
             'epigram' => $attributes['epigram'],
-            'avatar' => $attributes['avatar']
         ]);
-
 
 
         return back()->with('success', 'Profil güncellendi');
