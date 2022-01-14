@@ -96,9 +96,26 @@ class SessionsController extends Controller
 
     // USERCP
 
-    public function usercp()
+    public function usercp(Request $request)
     {
-        return view('login.usercp');
+
+        $user = $request->user();
+
+        //count published comments
+        $userComments = $user->comments;
+        $publishedComment = $userComments->reject(function ($userComments) {
+            return !$userComments->published;
+        });
+
+        // count published sub-comments
+        $userComtocoms = $user->comtocoms;
+        $publishedComtocom = $userComtocoms->reject(function ($userComtocoms) {
+            return !$userComtocoms->published;
+        });
+
+        $publishedCommentCount = $publishedComment->count() + $publishedComtocom->count();
+
+        return view('login.usercp', compact('user','publishedCommentCount'));
     }
 
     // USERCP->editProfile

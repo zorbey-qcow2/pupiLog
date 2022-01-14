@@ -24,7 +24,7 @@
                                         class="text-blue-300">Konu:</span> {{ $conversation->subject }}</p></a>
                             <p class="text-white"><span
                                     class="text-red-500">Son Mesaj:</span> {{ $conversation->lastMessage?->body }}
-                                [Seen]</p>
+                            </p>
                             <p class="text-white"><span
                                     class="text-blue-300">Katılımcılar:</span> {{ $conversation->users->pluck('username')->join(', ') }}
                             </p>

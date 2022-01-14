@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminPostController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\MessagesController;
 use App\Http\Controllers\NewsletterController;
+use App\Http\Controllers\NotificationsController;
 use App\Http\Controllers\PostCommentsController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
@@ -64,6 +65,7 @@ Route::middleware('auth')->group(function () {
         Route::post('sendmessage', [MessagesController::class, 'createNewMsg']);
         Route::get('readmessage/{conversation}' , [MessagesController::class, 'readMsg']);
         Route::post('replymessage/{conversation}' , [MessagesController::class, 'replyMsg']);
+        Route::get('notifications', [NotificationsController::class, 'index']);
     });
 
 });

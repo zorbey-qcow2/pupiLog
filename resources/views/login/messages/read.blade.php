@@ -17,7 +17,7 @@
 
                     @foreach($conversation->messages as $con)
                         <p class="text-white"><span
-                                class="text-red-500">{{$con->user->username}}:</span> {{ $con->body }} [Seen]</p>
+                                class="text-red-500">{{$con->user->username}}:</span> {{ $con->body }} </p>
                     @endforeach
 
                     <div class="border p-6 border-blue-300 rounded-md mt-10">
