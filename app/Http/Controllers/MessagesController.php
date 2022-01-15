@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\ConversionEvent;
 use App\Models\Message\Conversation;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -39,6 +40,8 @@ class MessagesController extends Controller
         ]);
 
         $createdConversation->users()->attach($receiverUserId);
+
+        event(new ConversionEvent($receiverUserId, senderUserId: $user->id));
 
         return redirect('/usercp/messages')->with('success', 'Mesajınız gönderildi!');
 

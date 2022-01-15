@@ -18,7 +18,7 @@
 
                 @if($user->conversations()->exists())
                     <p class="text-white">Mesajlar</p>
-                    @foreach($user->conversations as $conversation)
+                    @foreach($user->conversations->reverse() as $conversation)
                         <div class="mt-8">
                             <a href="/usercp/readmessage/{{$conversation->id}}"><p class="text-white"><span
                                         class="text-blue-300">Konu:</span> {{ $conversation->subject }}</p></a>

@@ -7,7 +7,7 @@
                 <x-posts-grid :posts="$posts"/>
                 {{ $posts->links() }}
             @else
-                <p class="text-center">Henüz paylaşılan bir yazı yok. Daha sonra bekleriz.</p>
+                <p class="text-center text-white">Henüz paylaşılan bir yazı yok. Daha sonra bekleriz.</p>
             @endif
         </main>
     </x-slot>
