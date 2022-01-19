@@ -15,12 +15,13 @@ pupiLog is a next generation blog software written via using Laravel-Framework. 
 - Posts and comments can be set to published or unpublished 
 - Mostly Responsive Design
 - Generate your database and fake datas via migration and seed
+- Private message / Notifications
 
 ## Working in progress
 
 - Seperating project to two branchs ( Js / non-Js versions )
-- User profiles and user control panel
-- ~~Like and Dislike logic~~
+- ~~User profiles and user control panel~~ :DONE
+- ~~Like and Dislike logic~~ :DONE
 
 ## Installation Instructions
 
@@ -38,13 +39,15 @@ pupiLog is a next generation blog software written via using Laravel-Framework. 
 ## User Role\Permissions
 > Edit `users -> role_id` in database to set the authority.
 - 1 : Admin
-- 2 : Moderator
-- 3 : Author
 - 4 : Standart
-- 5 : Restricted
 - 6 : Banned 
 
-Thanks to <a href="https://github.com/furkanmeraloglu" target="_blank">@furkanmeraloglu</a> who always supports me (◕‿◕)
+## Thanks (◕‿◕)
+- <a href="https://github.com/furkanmeraloglu" target="_blank">@furkanmeraloglu</a>
+- <a href="https://asklagbox.com/" target="_blank">@lagbox</a>
+- <a href="https://github.com/semihkeskindev" target="_blank">@semihkeskin</a>
+- <a href="https://github.com/ayberkcal" target="_blank">@ayberkcal</a>
+
 
 ## License
 
